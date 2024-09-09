@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Hero - Your One-Stop Website For Blood Donation</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blood_bank_app/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'blood_bank_app/css/blood_dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!---Bootstrap for carousel-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{% url 'home' %}"><img src="{% static 'blood_bank_app/images/logo.png' %}" alt="Logo"></a>
+            </div>
+
+
+            <ul class="nav-links">
+
+                <!-- First dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Give Blood</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'book_appointment' %}">Book Appointment</a>
+                        <a href="{% url 'eligibility_quiz' %}">Eligibility Quiz</a>
+                        <a href="{% url 'locations' %}">Blood Bank Locations</a>
+                    </div>
+                </li>
+
+                <!-- Second dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Blood Donation Information</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'why_donate' %}">Why Donate Blood?</a>
+                        <a href="{% url 'blood_types' %}">What Are The Blood Types?</a>
+                    </div>
+                </li>
+
+
+                <!-- Third dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">About Us</a>
+                    <div class="dropdown-content">
+                        <a href=" {% url 'who_are_we' %}">Who Are We?</a>
+                        <a href="{% url 'rewards_board' %}">Rewards Board</a>
+                    </div>
+                </li>
+            </ul>
+
+
+
+
+            <div class="login-button">
+
+                {% if request.user.is_authenticated %}
+
+
+                <p> <a href="{% url 'dashboard' %}"> Hello, {{request.user.first_name}} </a>| <a
+                        href="{% url 'logout' %}"> Logout </a> </p>
+
+                {% else %}
+
+                <div>
+                    <a href="{% url 'login' %}" class="btn-login">Log In</a>
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+
+            <!-- <div id="loginPopup" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Login</h2>
+                    <form id="loginForm" method="POST" action="#">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Login</button>
+                    </form>
+                </div> -->
+            </div>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Blood Donor Information</p>
+    </footer>
+
+    <!--javascript-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'blood_bank_app/js/scripts.js' %}"></script>
+
+</body>
+
+</html>

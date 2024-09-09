@@ -1,0 +1,45 @@
+{% extends 'blood_bank_app/base.html' %}
+
+{% block content %}
+
+<h2>Login</h2>
+
+<form method="post">
+
+    <!-- forms in django won't work without this csrf-->
+    {% csrf_token %}
+    {% for field in login_form %}
+    <p>
+        {{field.label_tag}}
+        {{field}}
+
+        {% if field.help_text %}
+        <small style="color:grey" ;>{{field.http_text}}</small>
+        {% endif %}
+
+        {% for error in field.errors %}
+        <small style="color:red;">{{error}}</small>
+        {% endfor %}
+
+
+    </p>
+    {% endfor %}
+
+    {% if login_form.non_field_errors %}
+    <div style="color: red;">
+        <p> {{login_form.non_field_errors}}</p>
+    </div>
+    {% endif %}
+
+    <button type="submit">Log in</button>
+
+</form>
+
+
+<div class="register-link">
+
+    <p>Don't have an account? Click <a href="{% url 'register' %}">here</a> to register!</p>
+
+</div>
+
+{% endblock content %}

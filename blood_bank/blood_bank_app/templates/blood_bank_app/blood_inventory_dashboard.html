@@ -1,0 +1,105 @@
+<!-- <div>
+    <div id="blood_inventory_title">
+        <h1>National Blood Inventory</h1>
+    </div>
+
+
+    <div class="dashboard">
+
+        <div class="container">
+            <div class="droplet droplet-container">
+                <div class="droplet-content">
+                    <p class="days-remaining">10 Days</p>
+                </div>
+            </div>
+            <div class="blood-group">AB+</div>
+        </div>
+
+        <div class="container">
+            <div class="droplet droplet-container">
+                <div class="droplet-content">
+                    <p class="days-remaining">3 Days</p>
+                </div>
+            </div>
+            <div class="blood-group">AB-</div>
+        </div>
+
+        <div class="container">
+            <div class="droplet droplet-container">
+                <div class="droplet-content">
+                    <p class="days-remaining">12 Days</p>
+                </div>
+            </div>
+            <div class="blood-group">A+</div>
+        </div>
+
+        <div class="container">
+            <div class="droplet droplet-container">
+                <div class="droplet-content">
+                    <p class="days-remaining">12 Days</p>
+                </div>
+            </div>
+            <div class="blood-group">A-</div>
+        </div>
+
+        <div class="container">
+            <div class="droplet droplet-container">
+                <div class="droplet-content">
+                    <p class="days-remaining">12 Days</p>
+                </div>
+            </div>
+            <div class="blood-group">B+</div>
+        </div>
+
+        <div class="container">
+            <div class="droplet droplet-container">
+                <div class="droplet-content">
+                    <p class="days-remaining">3 Days</p>
+                </div>
+            </div>
+            <div class="blood-group">B-</div>
+        </div>
+
+        <div class="container">
+            <div class="droplet droplet-container">
+                <div class="droplet-content">
+                    <p class="days-remaining"> 5 Days</p>
+                </div>
+            </div>
+            <div class="blood-group">O+</div>
+        </div>
+
+        <div class="container">
+            <div class="droplet droplet-container">
+                <div class="droplet-content">
+                    <p class="days-remaining">12 Days</p>
+                </div>
+            </div>
+            <div class="blood-group">O-</div>
+        </div>
+
+    </div>
+
+</div> -->
+
+
+
+
+<div class="main_blood_dash">
+    <div id="blood_inventory_title">
+        <h1>National Blood Inventory</h1>
+    </div>
+
+    <div class="tgt-droplets">
+
+        {% for blood in blood_inventory %}
+        <div class="one-droplet">
+            <div class="circle">
+                <div class="wave"></div>
+                <div class="days-remaining">{{ blood.days_remaining }} Days</div>
+            </div>
+            <div class="blood-type">{{ blood.blood_type }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

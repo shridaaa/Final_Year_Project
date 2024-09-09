@@ -1,0 +1,78 @@
+{% extends 'blood_bank_app/base.html' %}
+
+{% block content %}
+<div class="rewards-board-section">
+    <h1>Rewards Board</h1>
+
+    <div class="tab-container">
+        <button class="tablink" onclick="openTab(event, 'bronze')">Bronze Members</button>
+        <button class="tablink" onclick="openTab(event, 'silver')">Silver Members</button>
+        <button class="tablink" onclick="openTab(event, 'gold')">Gold Members</button>
+        <button class="tablink" onclick="openTab(event, 'platinum')">Platinum Members</button>
+    </div>
+
+    <div id="bronze" class="tab-content">
+        <h2>Bronze Members (1-2 Donations)</h2>
+        <table>
+            <tr>
+                <th>Member Name</th>
+                <th>Donations</th>
+            </tr>
+            {% for member in bronze_members %}
+            <tr>
+                <td>{{ member.first_name }} {{ member.last_name }}</td>
+                <td>{{ member.donations }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div id="silver" class="tab-content" style="display:none">
+        <h2>Silver Members (3 Donations)</h2>
+        <table>
+            <tr>
+                <th>Member Name</th>
+                <th>Donations</th>
+            </tr>
+            {% for member in silver_members %}
+            <tr>
+                <td>{{ member.first_name }} {{ member.last_name }}</td>
+                <td>{{ member.donations }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div id="gold" class="tab-content" style="display:none">
+        <h2>Gold Members (4 and Above Donations)</h2>
+        <table>
+            <tr>
+                <th>Member Name</th>
+                <th>Donations</th>
+            </tr>
+            {% for member in gold_members %}
+            <tr>
+                <td>{{ member.first_name }} {{ member.last_name }}</td>
+                <td>{{ member.donations }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div id="platinum" class="tab-content" style="display:none">
+        <h2>Platinum Members (Donation + Volunteer)</h2>
+        <table>
+            <tr>
+                <th>Member Name</th>
+                <th>Donations</th>
+            </tr>
+            {% for member in platinum_members %}
+            <tr>
+                <td>{{ member.first_name }} {{ member.last_name }}</td>
+                <td>{{ member.donations }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

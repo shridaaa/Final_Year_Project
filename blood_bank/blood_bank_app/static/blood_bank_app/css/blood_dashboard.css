@@ -1,0 +1,104 @@
+.main_blood_dash {
+    margin: 10px;
+    padding: 50px;
+    text-align: center;
+}
+
+#blood_inventory_title {
+    margin-bottom: 50px;
+}
+
+.tgt-droplets {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow circles to wrap to the next row */
+    justify-content: center;
+    /* Center the droplets horizontally */
+    gap: 20px;
+    /* Add space between droplets */
+}
+
+.one-droplet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 200px;
+    /* Adjust height to allow space for blood_type */
+    margin: 10px;
+}
+
+.circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #fff;
+    box-shadow: 0 0 0 5px rgb(216, 25, 19);
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wave {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgb(216, 25, 19);
+    border-radius: 50%;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.wave:before,
+.wave:after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -75%);
+    background: #000;
+}
+
+.wave:before {
+    border-radius: 45%;
+    background: rgba(255, 255, 255, 0.5);
+    animation: animate 5s linear infinite;
+}
+
+.wave:after {
+    border-radius: 40%;
+    background: rgba(255, 255, 255, 0.5);
+    animation: animate 10s linear infinite;
+    /* Fix spelling: 'infinite' */
+}
+
+
+.days-remaining {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    z-index: 10;
+    bottom: 20%;
+    /* Ensure it's on top */
+}
+
+.blood-type {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+@keyframes animate {
+    0% {
+        transform: translate(-50%, -75%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -75%) rotate(360deg);
+    }
+}

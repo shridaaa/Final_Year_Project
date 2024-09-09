@@ -1,0 +1,45 @@
+{% extends 'blood_bank_app/base.html' %}
+
+{% block content %}
+<div class="eligibility-container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            {% if error_message %}
+            <div class="alert alert-danger">
+                <p>{{ error_message }}</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <h5>{{ question_data.question }}</h5>
+                    {{ form.answer }} <!-- Render the radio button options here -->
+                    <input type="hidden" name="current_question" value="{{ current_question }}">
+                    <!-- Hidden field tracking the current question -->
+                    <br>
+                    <button type="submit" class="btn btn-primary">Next</button>
+                </form>
+            </div>
+            {% elif success_message %}
+            <div class="alert alert-success">
+                <h4>{{ success_message }}</h4>
+                <a href="{% url 'book_appointment' %}" class="btn btn-primary">Book your appointment here</a>
+            </div>
+            {% else %}
+            <div class="card">
+                <div class="card-header">
+                    Question {{ current_question }} of {{ total_questions }}
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <h5>{{ question_data.question }}</h5>
+                        {{ form.answer }}
+                        <input type="hidden" name="current_question" value="{{ current_question }}">
+                        <br>
+                        <button type="submit" class="btn btn-primary">Next</button>
+                    </form>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

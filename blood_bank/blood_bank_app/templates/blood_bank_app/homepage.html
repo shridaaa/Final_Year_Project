@@ -1,0 +1,252 @@
+{% extends 'blood_bank_app/base.html' %}
+
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h1>Welcome to the Blood Hero Donor Information Site</h1>
+    <p>Find information about blood donors and donation events.</p>
+
+    <!--carousel bootstrap plugin-->
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="{% static 'blood_bank_app/images/carousel1.jpg' %}" alt="First slide">
+            </div>
+
+            <div class="carousel-item">
+                <img class="d-block w-100" src="{% static 'blood_bank_app/images/carousel2.jpg' %}" alt="Second slide">
+            </div>
+
+        </div>
+
+        <!--attribution :
+        1. Image by freepik-->
+
+        <!--Coursel control-->
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div id="big-box">
+        <div id="left-box">
+            <div class="left-box-content">
+                <div class="box-text">
+                    <h2>Am I Eligible To Donate Blood?</h2>
+                    <p>Before you book appointment, make sure to take our eligiblity quiz !</p>
+                </div>
+                <div class="box-button">
+                    <a href="{% url 'eligibility_quiz' %}">
+                        <button>Take Eligibility Quiz</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="left-box-content">
+                <div class="box-text">
+                    <h2>Are You Ready To Donate Blood?</h2>
+                    <p>Great! You can book your appointment with this link! </p>
+                </div>
+                <div class="box-button">
+                    <a href="{% url 'book_appointment' %}">
+                        <button>Book Appointment</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="right-box">
+            <div>
+                <h3>Jump To:</h3>
+                <ul>
+                    <li><a href="{% url 'eligibility_quiz' %}">Eligibility</a></li>
+                    <li><a href="{% url 'why_donate' %}">Why Donate</a></li>
+                    <li><a href="{% url 'book_appointment' %}">Appointment Booking</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+
+</section>
+
+
+{% include 'blood_bank_app/blood_inventory_dashboard.html' %}
+
+
+
+
+
+<section class="donor-feedback">
+    <h2>What Do Our Donors Say</h2>
+
+    <!-- Feedback Carousel -->
+    <div id="feedbackCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#feedbackCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#feedbackCarousel" data-slide-to="1"></li>
+            <li data-target="#feedbackCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="row no-gutters">
+                                <!-- Image on the left side -->
+                                <div class="col-3">
+                                    <img src="{% static 'blood_bank_app/images/donor1.jpg' %}"
+                                        class="img-fluid rounded-circle" alt="Donor 1">
+                                </div>
+                                <!-- Text on the right side -->
+                                <div class="col-9">
+                                    <div class="card-body">
+                                        <p class="card-text">"Donating blood is a rewarding experience. The process was
+                                            smooth, and the staff was incredibly supportive. I feel proud to contribute
+                                            to such a noble cause."</p>
+                                        <p class="card-author"><strong>John Doe</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="row no-gutters">
+                                <!-- Image on the left side -->
+                                <div class="col-3">
+                                    <img src="{% static 'blood_bank_app/images/donor2.jpg' %}"
+                                        class="img-fluid rounded-circle" alt="Donor 1">
+                                </div>
+                                <!-- Text on the right side -->
+                                <div class="col-9">
+                                    <div class="card-body">
+                                        <p class="card-text">"I was nervous at first, but the team made me feel at ease.
+                                            The
+                                            entire experience was much better than I expected. I would definitely donate
+                                            again."</p>
+                                        <p class="card-author"><strong>Jane Smith</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="row no-gutters">
+                                <!-- Image on the left side -->
+                                <div class="col-3">
+                                    <img src="{% static 'blood_bank_app/images/donor3.jpg' %}"
+                                        class="img-fluid rounded-circle" alt="Donor 1">
+                                </div>
+                                <!-- Text on the right side -->
+                                <div class="col-9">
+                                    <div class="card-body">
+                                        <p class="card-text">"The best part about donating blood is knowing that it can
+                                            save
+                                            lives. The staff was friendly, and the process was quick and efficient."</p>
+                                        <p class="card-author"><strong>Emily Johnson</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- Repeat similar structure for more carousel items if needed -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="row no-gutters">
+                                <!-- Image on the left side -->
+                                <div class="col-3">
+                                    <img src="{% static 'blood_bank_app/images/donor4.jpg' %}"
+                                        class="img-fluid rounded-circle" alt="Donor 1">
+                                </div>
+                                <!-- Text on the right side -->
+                                <div class="col-9">
+                                    <div class="card-body">
+                                        <p class="card-text">"I had a wonderful experience donating blood. The staff
+                                            were kind
+                                            and professional, making the process very comfortable."</p>
+                                        <p class="card-author"><strong>Micheal Brown</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="row no-gutters">
+                                <!-- Image on the left side -->
+                                <div class="col-3">
+                                    <img src="{% static 'blood_bank_app/images/donor5.jpg' %}"
+                                        class="img-fluid rounded-circle" alt="Donor 1">
+                                </div>
+                                <!-- Text on the right side -->
+                                <div class="col-9">
+                                    <div class="card-body">
+                                        <p class="card-text">"It was a quick and easy process. I felt well taken care of
+                                            and
+                                            left knowing I had done something good for others."</p>
+                                        <p class="card-author"><strong>Sarah Davis</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="row no-gutters">
+                                <!-- Image on the left side -->
+                                <div class="col-3">
+                                    <img src="{% static 'blood_bank_app/images/donor6.jpg' %}"
+                                        class="img-fluid rounded-circle" alt="Donor 1">
+                                </div>
+                                <!-- Text on the right side -->
+                                <div class="col-9">
+                                    <div class="card-body">
+                                        <p class="card-text">"Donating blood was an eye-opening experience. I’m happy to
+                                            supporta cause that is so critical to our community."</p>
+                                        <p class="card-author"><strong>David Wilson</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <a class="carousel-control-prev" href="#feedbackCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#feedbackCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>
+
+{% endblock %}

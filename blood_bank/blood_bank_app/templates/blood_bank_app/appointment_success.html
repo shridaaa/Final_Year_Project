@@ -1,0 +1,17 @@
+{% extends 'blood_bank_app/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Appointment Booked Successfully!</h2>
+    <p>{{request.user.first_name}}, Thank you for booking your appointment. Here are your appointment details:</p>
+
+    <ul>
+        <li><strong>Date:</strong> {{ request.session.appointment_date }}</li>
+        <li><strong>Time:</strong> {{ request.session.appointment_time }}</li>
+        <li><strong>Donation Center:</strong> {{ request.session.appointment_center }}</li>
+    </ul>
+
+    <p>We look forward to seeing you!</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Return to Home</a>
+</div>
+{% endblock %}

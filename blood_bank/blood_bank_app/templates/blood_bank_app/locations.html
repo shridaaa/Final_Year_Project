@@ -1,0 +1,35 @@
+{% extends 'blood_bank_app/base.html' %}
+
+
+{% block content %}
+<div id="location-center">
+
+    <h1>Donation Centers</h1>
+
+    {% for center in donation_centers %}
+
+
+
+    <div class="donation-info">
+        <h2>{{ center.name }}</h2>
+        <p>{{ center.address }}, {{ center.city }}</p>
+        <p>Contact: {{ center.contact_number }}</p>
+
+        {% if center.map_image %}
+        <div class="map-image">
+            <img src="{{ center.map_image.url }}" alt="Map for {{ center.name }}" width="600" height="450">
+        </div>
+        {% else %}
+        <p>No map available</p>
+        {% endif %}
+    </div>
+
+
+    {% endfor %}
+
+
+</div>
+
+
+
+{% endblock content %}
